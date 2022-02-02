@@ -8,7 +8,47 @@
 </head>
 <body>
     <script>
-        
+
+        const rockPaperScissors = ["rock", "paper", "scissors"]
+
+        function computerPlay() {
+            let random = Math.floor(Math.random() * rockPaperScissors.length);
+            return(rockPaperScissors[random])
+        }
+
+        let computerSelection = computerPlay()
+        let playerSelection = prompt("Choose 'rock', 'paper', or 'scissors'", "")
+
+        // Validate player input and let them choose again if invalid
+
+        function playRound(playerSelection, computerSelection) {
+            
+            playerSelection = playerSelection.toLowerCase()
+            computerSelection = computerSelection.toLowerCase()
+
+            if ((playerSelection === 'rock' && computerSelection === 'scissors') || 
+                (playerSelection === 'paper' && computerSelection === 'rock') ||
+                (playerSelection === 'scissors' && computerSelection === 'paper')) {
+
+                    return("You won!")
+
+                } else if (playerSelection === computerSelection) {
+
+                    return("Tie!")
+
+                } else {
+
+                    return("You lost!")
+                }
+
+        }
+
+        let result = playRound(playerSelection, computerSelection)
+
+        console.log(`Computer chose ${computerSelection.toLowerCase()}`)
+        console.log(`You chose ${playerSelection.toLowerCase()}`)
+        console.log(result)
+
     </script>
 </body>
 </html>
