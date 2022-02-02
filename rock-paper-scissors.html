@@ -16,10 +16,15 @@
             return(rockPaperScissors[random])
         }
 
-        let computerSelection = computerPlay()
+        const computerSelection = computerPlay()
         let playerSelection = prompt("Choose 'rock', 'paper', or 'scissors'", "")
 
-        // Validate player input and let them choose again if invalid
+        function validateInput() {
+            while (rockPaperScissors.indexOf(playerSelection) === -1) {
+                alert("That is not a valid option. Please try again.");
+                playerSelection = prompt("Choose 'rock', 'paper', or 'scissors'", "")
+            }
+        }
 
         function playRound(playerSelection, computerSelection) {
             
@@ -42,6 +47,8 @@
                 }
 
         }
+
+        validateInput()
 
         let result = playRound(playerSelection, computerSelection)
 
