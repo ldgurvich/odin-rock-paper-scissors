@@ -11,11 +11,16 @@
 
         const rockPaperScissors = ["rock", "paper", "scissors"]
 
+        let playerScore = 0
+        let computerScore = 0
+
+        // Pick random move for computer from array
         function computerPlay() {
             let random = Math.floor(Math.random() * rockPaperScissors.length);
             return(rockPaperScissors[random])
         }
 
+        // Get player input and validate it
         function getPlayerSelection() {
             input = prompt("Choose 'rock', 'paper', or 'scissors'", "")
 
@@ -27,6 +32,7 @@
             return input
         }
 
+        // Play one round and return result
         function playRound(playerSelection, computerSelection) {
             
             playerSelection = playerSelection.toLowerCase()
@@ -49,9 +55,8 @@
 
         }
 
-        let playerScore = 0
-        let computerScore = 0
-
+        // Play five rounds of game and track scores after each round
+        // In the future maybe change this to 'first to 5'?
         function game() {
 
             for (let i = 0; i < 5; i++) {
@@ -78,6 +83,7 @@
 
         game()
         
+        // Show final scores
         console.log("Final score")
         console.log(`Player: ${playerScore}`)
         console.log(`Computer: ${computerScore}`)
