@@ -16,14 +16,15 @@
             return(rockPaperScissors[random])
         }
 
-        const computerSelection = computerPlay()
-        let playerSelection = prompt("Choose 'rock', 'paper', or 'scissors'", "")
+        function getPlayerSelection() {
+            input = prompt("Choose 'rock', 'paper', or 'scissors'", "")
 
-        function validateInput() {
-            while (rockPaperScissors.indexOf(playerSelection) === -1) {
-                alert("That is not a valid option. Please try again.");
-                playerSelection = prompt("Choose 'rock', 'paper', or 'scissors'", "")
+            while (rockPaperScissors.indexOf(input) === -1) {
+                alert("That is not a valid option. Please try again.")
+                input = prompt("Choose 'rock', 'paper', or 'scissors'", "")
             }
+
+            return input
         }
 
         function playRound(playerSelection, computerSelection) {
@@ -48,14 +49,49 @@
 
         }
 
-        validateInput()
+        let playerCount = 0
+        let computerCount = 0
 
-        let result = playRound(playerSelection, computerSelection)
+        function game() {
 
-        console.log(`Computer chose ${computerSelection.toLowerCase()}`)
-        console.log(`You chose ${playerSelection.toLowerCase()}`)
-        console.log(result)
+            for (let i = 0; i < 5; i++) {
 
+                console.log(`Round ${i + 1}`)
+
+                let computerSelection = computerPlay()
+                let playerSelection = getPlayerSelection()
+
+                let result = playRound(playerSelection, computerSelection)
+
+                console.log(`Computer chose ${computerSelection.toLowerCase()}`)
+                console.log(`You chose ${playerSelection.toLowerCase()}`)
+                console.log(result)
+
+                if (result === "You won!") {
+                    playerCount++
+                } else if (result === "You lost!") {
+                    computerCount++
+                }
+
+            }
+        }
+
+        game()
+        
+        console.log("Final score")
+        console.log(`Player: ${playerCount}`)
+        console.log(`Computer: ${computerCount}`)
+
+        if (playerCount > computerCount) {
+            console.log("You win the game!")
+
+        } else if (playerCount === computerCount) {
+            console.log("It's a tie!")
+
+        } else {
+            console.log("You lost the game! Better luck next time.")
+        }
+       
     </script>
 </body>
 </html>
