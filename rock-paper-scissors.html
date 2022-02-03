@@ -49,8 +49,8 @@
 
         }
 
-        let playerCount = 0
-        let computerCount = 0
+        let playerScore = 0
+        let computerScore = 0
 
         function game() {
 
@@ -68,9 +68,9 @@
                 console.log(result)
 
                 if (result === "You won!") {
-                    playerCount++
+                    playerScore++
                 } else if (result === "You lost!") {
-                    computerCount++
+                    computerScore++
                 }
 
             }
@@ -79,13 +79,13 @@
         game()
         
         console.log("Final score")
-        console.log(`Player: ${playerCount}`)
-        console.log(`Computer: ${computerCount}`)
+        console.log(`Player: ${playerScore}`)
+        console.log(`Computer: ${computerScore}`)
 
-        if (playerCount > computerCount) {
+        if (playerScore > computerScore) {
             console.log("You win the game!")
 
-        } else if (playerCount === computerCount) {
+        } else if (playerScore === computerScore) {
             console.log("It's a tie!")
 
         } else {
