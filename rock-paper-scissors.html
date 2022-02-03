@@ -11,9 +11,6 @@
 
         const rockPaperScissors = ["rock", "paper", "scissors"]
 
-        let playerScore = 0
-        let computerScore = 0
-
         function computerPlay() {
             let random = Math.floor(Math.random() * rockPaperScissors.length);
             return(rockPaperScissors[random])
@@ -51,6 +48,9 @@
                 }
 
         }
+
+        let playerScore = 0
+        let computerScore = 0
 
         // In the future maybe change this to 'first to 5'?
         function game() {
