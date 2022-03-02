@@ -12,8 +12,9 @@
     <button id="paper">Paper</button>
     <button id="scissors">Scissors</button>
 
-    <div id="results"></div>
     <div id="score"></div>
+    <div id="results"></div>
+    
 
     <script>
 
@@ -32,38 +33,35 @@
             if ((playerSelection === 'rock' && computerSelection === 'scissors') || 
                 (playerSelection === 'paper' && computerSelection === 'rock') ||
                 (playerSelection === 'scissors' && computerSelection === 'paper')) {
-
                     playerScore++
-                    return("You won!");
-
                 } else if (playerSelection === computerSelection) {
-
-                    return("Tie!");
-
+                    return("Tie");
                 } else {
-
                     computerScore++
-                    return("You lost!");
-                    
                 }
-
         }
 
         let playerScore = 0;
         let computerScore = 0;
 
-        let allButtons = document.querySelectorAll('button');
-        let gameResult = document.getElementById('#results');
-
+        let score = document.querySelector('#score');
+        let results = document.querySelector('#results');
 
         document.querySelectorAll('button').forEach(button => {
             button.addEventListener('click', () => {
                 playRound(button.getAttribute('id'))
-                console.log(playerScore)
-                console.log(computerScore)
-                // console.log(button.getAttribute('id'))
+
+                score.textContent = `Your score: ${playerScore}
+                    Computer score: ${computerScore}`
+                
+                if (playerScore === 5) {
+                    alert('You won!')
+                } else if (computerScore === 5) {
+                    alert('Oof, that\'s rough. You lost.')
+                }
+
             })
-        })        
+        })      
 
         // for (let i = 0; i < allButtons.length; i++) {
         //     allButtons[i].addEventListener('click', () => {
